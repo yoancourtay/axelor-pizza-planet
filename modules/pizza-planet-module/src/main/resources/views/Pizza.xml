@@ -31,14 +31,14 @@
         <field name="description"/>
         <field name="price"/>
         <template><![CDATA[
-          <div class="span4 card-image">
+          <div class="span12 card-image">
             <img ng-if="picture" ng-src="{{$image(null, 'picture')}}">
             <img ng-if="!picture" src="img/thumbnail.png">
-            <strong>{{name}}</strong></br>
+            <div class="panel">
+              <div class="panel-title">{{name}}</div></br>
+              <p class="panel-body">{{description}}</p>
+            </div>
             <strong>{{price}}</strong>
-          </div>
-          <div class="span6">
-            <strong>{{description}}</strong>
           </div>
         ]]>
         </template>
