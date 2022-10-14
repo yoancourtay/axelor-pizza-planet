@@ -2,28 +2,30 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <grid title="List of our pizzas" name="pizza-grid" model="com.axelor.pizza.db.Pizza">
+    <grid title="List of our pizzas" name="pizza-grid" model="com.axelor.pizza.db.Pizza"  canNew="false" canDelete="false" canEdit="false">
         <field name="picture" widget="image"/>
         <field name="name"/>
         <field name="description" widget="text"/>
         <field name="toppingList"/>
         <field name="base"/>
         <field name="sauceList"/>
-        <field name="price"/>
+        <field name="price"/>        
     </grid>
     <form title="Create a pizza" name="pizza-form" model="com.axelor.pizza.db.Pizza">
         <panel name="mainPanel" colSpan="12">
-            <field name="picture" widget="image"/>
-            <field name="name" colSpan="12"/>
-            <field name="description" colSpan="9" widget="text"/>
-            <field name="toppingList"/>  
-            <field name="base"/>
-            <field name="sauceList"/>
-            <field name="isVegetarian"/>
-            <field name="price"/>
+            <field name="picture" widget="image" colSpan="2"/>
+            <field name="name" colSpan="10" showTitle="false" placeholder="Pizza name here"/>
+            <field name="description" colSpan="12" widget="text" showTitle="false" placeholder="Describe your master piece here!"/>
+            <field name="base" colSpan="12" placeholder="Tomato sauce, fresh creme, or both!"/>
+            <field name="toppingList" colSpan="12"/>
+            <field name="sauceList" colSpan="12"/>
+            <separator colSpan="12"/>
+            <field name="isVegetarian" colSpan="3"/>
+            <spacer colSpan="6"/>
+            <field name="price" colSpan="3"/>
         </panel>
     </form>
-    <cards title="List of our pizzas" name="pizza-card" model="com.axelor.pizza.db.Pizza">
+    <cards title="List of our pizzas" name="pizza-card" model="com.axelor.pizza.db.Pizza" canNew="false" canDelete="false" canEdit="false">
         <field name="picture"/>
         <field name="name"/>
         <field name="description"/>

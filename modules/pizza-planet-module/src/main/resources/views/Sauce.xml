@@ -10,10 +10,12 @@
     </grid>
     <form title="Create a sauce" name="sauce-form" model="com.axelor.pizza.db.Sauce">
         <panel name="mainPanel" colSpan="12">
-            <field name="picture" widget="image"/>
-            <field name="name" colSpan="12"/>
-            <field name="description" colSpan="9"/>
-            <field name="price"/>
+            <field name="picture" widget="image" colSpan="2"/>
+            <field name="name" colSpan="10" showTitle="false" placeholder="Sauce name here"/>
+            <field name="description" colSpan="12" widget="text" showTitle="false" placeholder="Sauce description here"/>
+            <separator colSpan="12"/>
+            <spacer colSpan="9"/>
+            <field name="price" colSpan="3"/>
         </panel>
     </form>
 </object-views>

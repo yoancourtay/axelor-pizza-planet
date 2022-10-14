@@ -10,20 +10,24 @@
 
     <menuitem name="menu-pizza-customPizza" title="Customize your pizza" parent="menu-pizza-root"/>
 
-    <menuitem name="menu-pizza-toppings" title="Our pizza toppings" parent="menu-pizza-customPizza" action="action.topping.view.all"/>
-    <menuitem name="menu-pizza-bases" title="Our pizza bases" parent="menu-pizza-customPizza" action="action.base.view.all"/>
-    <menuitem name="menu-pizza-sauces" title="Our pizza sauces" parent="menu-pizza-customPizza" action="action.sauce.view.all"/>
+    <menuitem name="menu-pizza-create" title="Create your own" parent="menu-pizza-customPizza" action="action.pizza.create" order="0"/>
+    <menuitem name="menu-pizza-toppings" title="Our pizza toppings" parent="menu-pizza-customPizza" action="action.topping.view.all" order="1"/>
+    <menuitem name="menu-pizza-bases" title="Our pizza bases" parent="menu-pizza-customPizza" action="action.base.view.all" order="2"/>
+    <menuitem name="menu-pizza-sauces" title="Our pizza sauces" parent="menu-pizza-customPizza" action="action.sauce.view.all" order="3"/>
 
 
     <action-view name="action.pizza.view.all" title="Our pizzas" model="com.axelor.pizza.db.Pizza">
         <view type="cards" name="pizza-card"/>
         <view type="grid" name="pizza-grid"/>
-        <view type="form" name="pizza-form"/>
     </action-view>
     <action-view name="action.pizza.view.vege" title="Our vegetarian pizzas" model="com.axelor.pizza.db.Pizza">
         <view type="cards" name="pizza-card"/>
         <view type="grid" name="pizza-grid"/>
         <domain>self.isVegetarian = true</domain>
+    </action-view>
+
+    <action-view name="action.pizza.create" title="Pizza maker" model="com.axelor.pizza.db.Pizza">
+        <view type="form" name="pizza-form"/>
     </action-view>
 
     <action-view name="action.topping.view.all" title="Our pizza toppings" model="com.axelor.pizza.db.Topping">
