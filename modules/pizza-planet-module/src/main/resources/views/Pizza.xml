@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    <grid title="List of our pizzas" name="pizza-grid" model="com.axelor.pizza.db.Pizza">
+        <field name="picture" widget="image"/>
+        <field name="name"/>
+        <field name="description" widget="text"/>
+        <field name="toppingList"/>
+        <field name="base"/>
+        <field name="sauceList"/>
+        <field name="price"/>
+    </grid>
+    <form title="Create a pizza" name="pizza-form" model="com.axelor.pizza.db.Pizza">
+        <panel name="mainPanel" colSpan="12">
+            <field name="picture" widget="image"/>
+            <field name="name" colSpan="12"/>
+            <field name="description" colSpan="9" widget="text"/>
+            <field name="toppingList"/>  
+            <field name="base"/>
+            <field name="sauceList"/>
+            <field name="isVegetarian"/>
+            <field name="price"/>
+        </panel>
+    </form>
+    <cards title="List of our pizzas" name="pizza-card" model="com.axelor.pizza.db.Pizza">
+        <field name="picture"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="price"/>
+        <template><![CDATA[
+          <div class="span4 card-image">
+            <img ng-if="photo" ng-src="{{$image(null, 'picture')}}">
+            <img ng-if="!photo" src="img/user.png">
+            <strong>{{name}}</strong></br>
+            <strong>{{price}}</strong>
+          </div>
+          <div class="span6">
+            <strong>{{description}}</strong>
+          </div>
+        ]]>
+        </template>
+  
+      </cards>
+</object-views>

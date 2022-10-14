@@ -1,0 +1,9 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+    <module name="pizza" package="com.axelor.pizza.db"/>
+    <entity name="Base">
+        <many-to-one name="picture" title="Picture" ref="com.axelor.meta.db.MetaFile"/>
+        <string name="name" required = "true" min="2"/>
+        <string name="description"/>
+        <decimal name="price" required="true" min="0.0"/>
+    </entity>
+</domain-models>

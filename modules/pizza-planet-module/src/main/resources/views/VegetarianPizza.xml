@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    <grid title="List of our pizzas" name="vege-pizza-grid" model="com.axelor.pizza.db.Pizza">
+        <field name="picture" widget="image"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="toppingList"/>
+        <field name="base"/>
+        <field name="sauceList"/>
+        <field name="price"/>
+    </grid>
+</object-views>
