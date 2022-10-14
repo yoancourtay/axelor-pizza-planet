@@ -30,8 +30,8 @@
         <field name="price"/>
         <template><![CDATA[
           <div class="span4 card-image">
-            <img ng-if="photo" ng-src="{{$image(null, 'picture')}}">
-            <img ng-if="!photo" src="img/user.png">
+            <img ng-if="picture" ng-src="{{$image(null, 'picture')}}">
+            <img ng-if="!picture" src="img/thumbnail.png">
             <strong>{{name}}</strong></br>
             <strong>{{price}}</strong>
           </div>
