@@ -11,18 +11,18 @@
         <field name="sauceList"/>
         <field name="price"/>        
     </grid>
-    <form title="Create a pizza" name="pizza-form" model="com.axelor.pizza.db.Pizza">
+    <form title="Create a pizza" name="pizza-form" model="com.axelor.pizza.db.Pizza" onNew="action.pizza.setdefaults">
         <panel name="mainPanel" colSpan="12">
             <field name="picture" widget="image" colSpan="2"/>
-            <field name="name" colSpan="10" showTitle="false" placeholder="Pizza name here"/>
-            <field name="description" colSpan="12" widget="text" showTitle="false" placeholder="Describe your master piece here!"/>
+            <field name="name" colSpan="10" showTitle="false" placeholder="Pizza name here" min="5" max="32"/>
+            <field name="description" colSpan="12" widget="text" showTitle="false" placeholder="Describe your master piece here!" max="512"/>
             <field name="base" colSpan="12" placeholder="Tomato sauce, fresh creme, or both!"/>
             <field name="toppingList" colSpan="12"/>
             <field name="sauceList" colSpan="12"/>
             <separator colSpan="12"/>
             <field name="isVegetarian" colSpan="3"/>
             <spacer colSpan="6"/>
-            <field name="price" colSpan="3"/>
+            <field name="price" colSpan="3" min="10"/>
         </panel>
     </form>
     <cards title="List of our pizzas" name="pizza-card" model="com.axelor.pizza.db.Pizza" canNew="false" canDelete="false" canEdit="false">
@@ -44,4 +44,8 @@
         </template>
   
       </cards>
+
+      <action-record model="com.axelor.pizza.db.Pizza" name="action.pizza.setdefaults">
+        <field name="price" expr="eval: 10" />
+      </action-record>
 </object-views>

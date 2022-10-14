@@ -4,7 +4,7 @@
         <many-to-one name="picture" title="Picture" ref="com.axelor.meta.db.MetaFile"/>
         <string name="name" required = "true" min="2"/>
         <string name="description"/>
-        <decimal name="price" required="true" min="0.0"/>
+        <decimal name="price" required="true" min="0.0" default="10"/>
         <many-to-many ref="Topping" name="toppingList" title="Toppings" required="true"/>
         <many-to-one ref="Base" name="base"></many-to-one>
         <many-to-many ref="Sauce" name="sauceList" title="Sauce(s)"/>
