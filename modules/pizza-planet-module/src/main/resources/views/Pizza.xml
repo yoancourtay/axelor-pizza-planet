@@ -9,7 +9,11 @@
         <field name="toppingList"/>
         <field name="base"/>
         <field name="sauceList"/>
-        <field name="price"/>        
+        <field name="price"/>
+        <field name="isVegetarian">
+          <hilite background="success" if="isVegetarian == true"/>
+          <hilite background="danger" if="isVegetarian == false"/>
+        </field>
     </grid>
     <form title="Create a pizza" name="pizza-form" model="com.axelor.pizza.db.Pizza" onNew="action.pizza.setdefaults">
         <panel name="mainPanel" colSpan="12">
