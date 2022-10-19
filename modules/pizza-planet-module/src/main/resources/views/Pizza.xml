@@ -3,7 +3,10 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <grid title="List of our pizzas" name="pizza-grid" model="com.axelor.pizza.db.Pizza"  canNew="false" canDelete="false" canEdit="false">
-        <field name="picture" widget="image"/>
+      <toolbar>
+        <button onClick="action-pizza-do-something" title="Prefix all vegetarian pizzas" name="btn-prefix-all" css="btn-success" colSpan="4"/>
+      </toolbar>  
+      <field name="picture" widget="image"/>
         <field name="name"/>
         <field name="description" widget="text"/>
         <field name="toppingList"/>
@@ -52,4 +55,8 @@
       <action-record model="com.axelor.pizza.db.Pizza" name="action.pizza.setdefaults">
         <field name="price" expr="eval: 10" />
       </action-record>
+
+      <action-method name="action-pizza-do-something" model="com.axelor.pizza.db.Pizza">
+        <call class="com.axelor.pizza.web.PizzaController" method="doSomething"/>
+      </action-method>
 </object-views>
