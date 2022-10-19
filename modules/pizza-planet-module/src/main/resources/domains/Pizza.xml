@@ -9,5 +9,7 @@
         <many-to-one ref="Base" name="base"></many-to-one>
         <many-to-many ref="Sauce" name="sauceList" title="Sauce(s)"/>
         <boolean name="isVegetarian" required="true" title="Vegetarian friendly"></boolean>
+
+        <finder-method name="findByVegetarian" using="bool:isVegetarian" filter="self.isVegetarian == :isVegetarian "  all="true"/>
     </entity>
 </domain-models>
