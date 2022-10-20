@@ -57,6 +57,6 @@
       </action-record>
 
       <action-method name="action-pizza-do-something" model="com.axelor.pizza.db.Pizza">
-        <call class="com.axelor.pizza.web.PizzaController" method="doSomething"/>
+        <call class="com.axelor.pizzaplanet.web.PizzaController" method="doSomething"/>
       </action-method>
 </object-views>
