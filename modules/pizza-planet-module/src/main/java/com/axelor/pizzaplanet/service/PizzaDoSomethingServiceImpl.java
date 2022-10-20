@@ -20,7 +20,9 @@ public class PizzaDoSomethingServiceImpl implements PizzaDoSomethingService {
         Query<Pizza> query = pizzaRepository.findByVegetarian(true);
         if(query.count() > 0){
             for (Pizza pizza : query.fetch()) {
-                pizza.setName("[Vegetarian] " + pizza.getName());
+                if(!pizza.getName().contains("[Vegetarian] ")){
+                    pizza.setName("[Vegetarian] " + pizza.getName());
+                }
             }
             
             return true;
