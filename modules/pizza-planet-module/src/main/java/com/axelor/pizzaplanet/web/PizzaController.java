@@ -1,9 +1,9 @@
-package com.axelor.pizza.web;
+package com.axelor.pizzaplanet.web;
 
 import com.axelor.inject.Beans;
+import com.axelor.pizzaplanet.service.PizzaDoSomethingService;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
-import com.axelor.pizza.service.PizzaDoSomethingService;
 
 public class PizzaController {
     public void doSomething(ActionRequest request, ActionResponse response){

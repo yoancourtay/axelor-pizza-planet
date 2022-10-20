@@ -1,10 +1,8 @@
-package com.axelor.pizza.service;
+package com.axelor.pizzaplanet.service;
 
 import com.axelor.db.Query;
-import com.axelor.inject.Beans;
 import com.axelor.pizza.db.Pizza;
-import com.axelor.pizza.db.repo.PizzaRepository;
-import com.axelor.pizza.repository.PizzaRepositoryExtended;
+import com.axelor.pizzaplanet.repository.PizzaRepositoryExtended;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 

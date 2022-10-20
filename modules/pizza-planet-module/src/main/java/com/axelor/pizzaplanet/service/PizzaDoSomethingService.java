@@ -1,6 +1,4 @@
-package com.axelor.pizza.service;
-
-import com.axelor.pizza.db.Pizza;
+package com.axelor.pizzaplanet.service;
 
 public interface PizzaDoSomethingService {
     boolean doSomething();

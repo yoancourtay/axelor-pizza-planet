@@ -1,10 +1,10 @@
-package com.axelor.pizza;
+package com.axelor.pizzaplanet;
 
 import com.axelor.app.AxelorModule;
 import com.axelor.pizza.db.repo.PizzaRepository;
-import com.axelor.pizza.repository.PizzaRepositoryExtended;
-import com.axelor.pizza.service.PizzaDoSomethingService;
-import com.axelor.pizza.service.PizzaDoSomethingServiceImpl;
+import com.axelor.pizzaplanet.repository.PizzaRepositoryExtended;
+import com.axelor.pizzaplanet.service.PizzaDoSomethingService;
+import com.axelor.pizzaplanet.service.PizzaDoSomethingServiceImpl;
 
 public class PizzaModule extends AxelorModule {
     @Override

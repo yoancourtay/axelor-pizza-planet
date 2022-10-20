@@ -1,9 +1,9 @@
-package com.axelor.pizza.repository;
+package com.axelor.pizzaplanet.repository;
 
 import com.axelor.db.Query;
 import com.axelor.pizza.db.Pizza;
 import com.axelor.pizza.db.repo.PizzaRepository;
-import com.axelor.pizza.repository.PizzaRepositoryExtended;
+import com.axelor.pizzaplanet.repository.PizzaRepositoryExtended;
 
 public class PizzaRepositoryExtended extends PizzaRepository {
     
