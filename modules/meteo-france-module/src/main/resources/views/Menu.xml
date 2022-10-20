@@ -3,6 +3,14 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
-    <menuitem name="menu-meteo-root" title="Meteo France" icon="fa-sun-o" icon-background="lightblue"/>
+    <menuitem name="menu-meteo-france-root" title="Meteo France" icon="fa-sun-o" icon-background="lightblue"/>
+
+    <menuitem name="menu-mf-communes" title="Liste des communes" parent="menu-meteo-france-root"/>
+    <menuitem name="menu-mf-departements" title="Liste des departements" parent="menu-meteo-france-root"/>
+    <menuitem name="menu-mf-regions" title="Liste des regions" parent="menu-meteo-france-root"  action="action.mf.regions.view.all"/>
+
+    <action-view name="action.mf.regions.view.all" title="Les communes de France" model="com.axelor.meteo.db.Region">
+        <view type="grid" name="regions-grid"/>
+    </action-view>
 
 </object-views>
