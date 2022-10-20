@@ -39,6 +39,7 @@ allprojects {
 
 dependencies {
   implementation project(":modules:pizza-planet-module")
+  implementation project(":modules:meteo-france-module")
 }
 
 wrapper {

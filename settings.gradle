@@ -1,3 +1,4 @@
 rootProject.name = 'pizza-planet'
 
 include "modules:pizza-planet-module"
+include "modules:meteo-france-module"
