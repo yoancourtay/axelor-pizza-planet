@@ -5,10 +5,10 @@
 
     <menuitem name="menu-meteo-france-root" title="Meteo France" icon="fa-sun-o" icon-background="lightblue"/>
 
-    <menuitem name="menu-mf-api-root" title="Requête API" parent="menu-meteo-france-root" icon="fa-tasks" icon-background="white" order="0"/>
+    <menuitem name="menu-mf-api-root" title="Requête API" parent="menu-meteo-france-root" icon="fa-tasks" order="0"/>
     
-    <menuitem name="menu-mf-api-request" title="Faire une reqête API" parent="menu-mf-api-root" action="action.mf.api.request" icon="fa-cloud-upload" icon-background="grey" order="0"/>
-    <menuitem name="menu-mf-api-list" title="Voir les reqêtes faites" parent="menu-mf-api-root" action="action.mf.api.view.all" icon="fa-list-alt" icon-background="grey" order="1"/>
+    <menuitem name="menu-mf-api-request" title="Faire une reqête API" parent="menu-mf-api-root" action="action.mf.api.request" icon="fa-cloud-upload" order="0"/>
+    <menuitem name="menu-mf-api-list" title="Voir les reqêtes faites" parent="menu-mf-api-root" action="action.mf.api.view.all" icon="fa-list-alt" order="1"/>
     
     <action-view name="action.mf.api.request" title="Faire une requête à Meteo France" model="com.axelor.meteo.db.ApiRequest">
         <view type="form" name="api-form"/>
@@ -17,11 +17,11 @@
         <view type="grid" name="api-grid"/>
     </action-view>
     
-    <menuitem name="menu-mf-db-root" title="Données locale" parent="menu-meteo-france-root" icon="fa-database" icon-background="white" order="1"/>
+    <menuitem name="menu-mf-db-root" title="Données locale" parent="menu-meteo-france-root" icon="fa-database" order="1"/>
 
-    <menuitem name="menu-mf-db-communes" title="Liste des communes" parent="menu-mf-db-root" action="action.mf.communes.view.all" icon="fa-map-signs" icon-background="grey" order="0"/>
-    <menuitem name="menu-mf-db-departements" title="Liste des departements" parent="menu-mf-db-root" action="action.mf.departements.view.all" icon="fa-map" icon-background="grey" order="1"/>
-    <menuitem name="menu-mf-db-regions" title="Liste des regions" parent="menu-mf-db-root"  action="action.mf.regions.view.all" icon="fa-globe" icon-background="grey" order="2"/>
+    <menuitem name="menu-mf-db-communes" title="Liste des communes" parent="menu-mf-db-root" action="action.mf.communes.view.all" icon="fa-map-signs" order="0"/>
+    <menuitem name="menu-mf-db-departements" title="Liste des departements" parent="menu-mf-db-root" action="action.mf.departements.view.all" icon="fa-map" order="1"/>
+    <menuitem name="menu-mf-db-regions" title="Liste des regions" parent="menu-mf-db-root"  action="action.mf.regions.view.all" icon="fa-globe" order="2"/>
 
     <action-view name="action.mf.communes.view.all" title="Les communes de France" model="com.axelor.meteo.db.Commune">
         <view type="grid" name="commune-grid"/>
