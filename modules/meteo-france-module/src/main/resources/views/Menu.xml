@@ -5,12 +5,21 @@
 
     <menuitem name="menu-meteo-france-root" title="Meteo France" icon="fa-sun-o" icon-background="lightblue"/>
 
-    <menuitem name="menu-mf-communes" title="Liste des communes" parent="menu-meteo-france-root"/>
-    <menuitem name="menu-mf-departements" title="Liste des departements" parent="menu-meteo-france-root"/>
+    <menuitem name="menu-mf-communes" title="Liste des communes" parent="menu-meteo-france-root" action="action.mf.communes.view.all"/>
+    <menuitem name="menu-mf-departements" title="Liste des departements" parent="menu-meteo-france-root" action="action.mf.departements.view.all"/>
     <menuitem name="menu-mf-regions" title="Liste des regions" parent="menu-meteo-france-root"  action="action.mf.regions.view.all"/>
 
-    <action-view name="action.mf.regions.view.all" title="Les communes de France" model="com.axelor.meteo.db.Region">
-        <view type="grid" name="regions-grid"/>
+
+    <action-view name="action.mf.communes.view.all" title="Les communes de France" model="com.axelor.meteo.db.Commune">
+        <view type="grid" name="commune-grid"/>
+    </action-view>
+    
+    <action-view name="action.mf.departements.view.all" title="Les departements de France" model="com.axelor.meteo.db.Departement">
+        <view type="grid" name="departement-grid"/>
+    </action-view>
+    
+    <action-view name="action.mf.regions.view.all" title="Les regions de France" model="com.axelor.meteo.db.Region">
+        <view type="grid" name="region-grid"/>
     </action-view>
 
 </object-views>

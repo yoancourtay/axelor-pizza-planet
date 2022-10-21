@@ -1,8 +1,8 @@
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
     <module name="meteo" package="com.axelor.meteo.db"/>
     <entity name="Region">
-        <string name="code" required="true"/>
-        <string name="name" required="true" unique="true"/>
-        <one-to-many ref="Departement" name="departement"/>
+        <string name="code" required="true" title="Code"/>
+        <string name="name" required="true" unique="true" title="Nom de la region"/>
+        <one-to-many ref="Departement" name="departement" title="Departements de la region"/>
     </entity>
 </domain-models>

@@ -1,9 +1,9 @@
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
     <module name="meteo" package="com.axelor.meteo.db"/>
     <entity name="Commune">
-        <string name="insee" required="true" unique="true"/>
-        <string name="zipcode" required="true"/>
-        <string name="name" required="true"/>
-        <many-to-one ref="Departement" name="departement"/>
+        <string name="insee" required="true" unique="true" title="Code INSEE"/>
+        <string name="zipcode" required="true" title="Code postal"/>
+        <string name="name" required="true" title="Nom de la commune"/>
+        <many-to-one ref="Departement" name="departement" title="Departement de la commune"/>
     </entity>
 </domain-models>
