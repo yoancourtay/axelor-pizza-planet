@@ -4,10 +4,10 @@
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <form name="api-form" model="com.axelor.meteo.db.ApiRequest" title="Faire une requête à Meteo France">
       <panel>
-        <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onSelect=""/>
+        <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onSelect="action-mf-build-request"/>
         <field name="request" colSpan="12" title="Built request url" placeholder="Built url will display here"/>
         <spacer colSpan="3"/>
-        <button name="btnSnd" onClick="" title="Faire la requête" colSpan="6"/>
+        <button name="btnSnd" onClick="action-mf-send-request" title="Faire la requête" colSpan="6"/>
         <spacer colSpan="3"/>
         <field name="response" colSpan="12" title="Server's response to the request" placeholder="receive response will display here" widget="text"/>
       </panel>
@@ -20,4 +20,12 @@
       <field name="request"/>
       <field name="response"/>
     </grid>
+
+    <action-method name="action-mf-build-request" model="com.axelor.meteo.db.ApiRequest">
+      <call class="com.axelor.meteofrance.web.MeteoController" method="buildRequest"/>
+    </action-method>
+
+    <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">
+      <call class="com.axelor.meteofrance.web.MeteoController" method="sendRequest"/>
+    </action-method>
 </object-views>
