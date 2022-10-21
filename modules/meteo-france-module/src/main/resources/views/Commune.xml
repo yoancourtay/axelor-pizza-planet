@@ -3,10 +3,10 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <grid title="Liste des communes disponibles" name="commune-grid" model="com.axelor.meteo.db.Commune"  canNew="false" canDelete="false" canEdit="false">
-      <field name="insee"/>
-      <field name="zipcode"/>
+      <field name="insee" width="105"/>
+      <field name="zipcode" width="110"/>
       <field name="name"/>
-      <field name="departement"/>
+      <field name="departement" width="300"/>
       <!-- <field name="isVegetarian">
         <hilite background="success" if="isVegetarian == true"/>
         <hilite background="danger" if="isVegetarian == false"/>

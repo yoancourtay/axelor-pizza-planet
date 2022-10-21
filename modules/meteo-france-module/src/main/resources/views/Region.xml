@@ -3,8 +3,8 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <grid title="Liste des regions disponibles" name="region-grid" model="com.axelor.meteo.db.Region"  canNew="false" canDelete="false" canEdit="false">
-      <field name="code" width="20%"/>  
-      <field name="name" width="60%" />
-      <field name="departement" title="departements" width="20%"/>
+      <field name="code" width="65"/>  
+      <field name="name"/>
+      <field name="departement" width="200"/>
     </grid>
 </object-views>

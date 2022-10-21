@@ -3,9 +3,9 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <grid title="Liste des departements disponibles" name="departement-grid" model="com.axelor.meteo.db.Departement"  canNew="false" canDelete="false" canEdit="false">
-      <field name="code"/>  
+      <field name="code" width="65"/>  
       <field name="name"/>
-      <field name="commune" title="communes"/>
-      <field name="region"/>
+      <field name="commune" width="200"/>
+      <field name="region" width="200"/>
     </grid>
 </object-views>
