@@ -1,5 +1,5 @@
 package com.axelor.meteofrance.service;
 
 public interface ApiRequestService {
-    void sendRequest();
+    void sendRequest(String URL);
 }

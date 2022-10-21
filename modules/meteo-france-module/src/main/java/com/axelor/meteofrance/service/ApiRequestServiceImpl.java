@@ -12,7 +12,7 @@ public class ApiRequestServiceImpl implements ApiRequestService {
     }
 
     @Override
-    public void sendRequest(){
+    public void sendRequest(String URL){
 
     }
 }
