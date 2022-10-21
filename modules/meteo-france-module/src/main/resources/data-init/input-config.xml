@@ -5,17 +5,17 @@
     http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
 
 
- <input file="communes-departement-region.csv" separator="," type="com.axelor.meteo.db.Region" search="self.code = :code_region" >
+ <input file="Simple.csv" separator="," type="com.axelor.meteo.db.Region" search="self.code = :code_region" >
    <bind to="code" column="code_region"/> 
    <bind to="name" column="nom_region"/>
  </input>
 
- <input file="communes-departement-region.csv" separator="," type="com.axelor.meteo.db.Departement" search="self.code = :code_departement" >
+ <input file="Simple.csv" separator="," type="com.axelor.meteo.db.Departement" search="self.code = :code_departement" >
    <bind to="code" column="code_departement"/>
    <bind to="name" column="nom_departement"/>
 </input>
 
-<input file="communes-departement-region.csv" separator="," type="com.axelor.meteo.db.Commune" search="self.insee = :code_commune_INSEE" >
+<input file="Simple.csv" separator="," type="com.axelor.meteo.db.Commune" search="self.insee = :code_commune_INSEE" >
    <bind to="insee" column="code_commune_INSEE"/>
    <bind to="zipcode" column="code_postal"/>
    <bind to="name" column="nom_commune"/>
