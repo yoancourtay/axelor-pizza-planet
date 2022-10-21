@@ -4,7 +4,7 @@
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
     <form name="api-form" model="com.axelor.meteo.db.ApiRequest" title="Faire une requête à Meteo France">
       <panel>
-        <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onChange="save, action-mf-build-request"/>
+        <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onChange="buildRequestUrl"/>
         <field name="request" colSpan="12" title="Built request url" placeholder="Built url will display here"/>
         <spacer colSpan="3"/>
         <button name="btnSnd" onClick="save, action-mf-send-request" title="Faire la requête" colSpan="6"/>
@@ -21,9 +21,9 @@
       <field name="response"/>
     </grid>
 
-    <action-method name="action-mf-build-request" model="com.axelor.meteo.db.ApiRequest">
-      <call class="com.axelor.meteofrance.web.MeteoController" method="buildRequest"/>
-    </action-method>
+    <action-record model="com.axelor.meteo.db.ApiRequest" name="buildRequestUrl">
+      <field name="request" expr="eval: 'https://meteofrance.com/widget/prevision/'+commune?.insee+'0'" />
+    </action-record>
 
     <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">
       <call class="com.axelor.meteofrance.web.MeteoController" method="sendRequest"/>
