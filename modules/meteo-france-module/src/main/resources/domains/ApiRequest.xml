@@ -1,0 +1,8 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+    <module name="meteo" package="com.axelor.meteo.db"/>
+    <entity name="ApiRequest">
+        <many-to-one ref="Commune" name="commune"/>
+        <string name="request"/>
+        <binary name="response"/>
+    </entity>
+</domain-models>
