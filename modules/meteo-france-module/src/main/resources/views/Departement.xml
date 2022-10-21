@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <grid title="Liste des departements disponibles" name="departement-grid" model="com.axelor.meteo.db.Departement"  canNew="false" canDelete="false" canEdit="false">
+    <grid title="Liste des departements disponibles" name="departement-grid" model="com.axelor.meteo.db.Departement"  canNew="false" canDelete="false" canEdit="false" canArchive="false" canSave="false">
       <field name="code" width="65"/>  
       <field name="name"/>
       <field name="commune" width="200"/>
