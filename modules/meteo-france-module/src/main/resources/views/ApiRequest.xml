@@ -22,7 +22,8 @@
     </grid>
 
     <action-record model="com.axelor.meteo.db.ApiRequest" name="buildRequestUrl">
-      <field name="request" expr="eval: 'https://meteofrance.com/widget/prevision/'+commune?.insee+'0'" />
+      <!-- <field name="request" expr="eval: 'https://meteofrance.com/widget/prevision/'+commune?.insee+'0'" /> -->
+      <field name="request" expr="eval: 'http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/'+commune?.insee+'0'" />
     </action-record>
 
     <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">

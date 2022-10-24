@@ -3,6 +3,6 @@
     <entity name="ApiRequest">
         <many-to-one ref="Commune" name="commune"/>
         <string name="request"/>
-        <binary name="response"/>
+        <string name="response" large="true"/>
     </entity>
 </domain-models>
