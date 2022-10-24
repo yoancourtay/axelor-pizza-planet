@@ -10,6 +10,7 @@
         <button name="btnSnd" onClick="save, action-mf-send-request" title="Faire la requête" colSpan="6"/>
         <spacer colSpan="3"/>
         <field name="jsonData" colSpan="12" title="Server's response to the request" placeholder="receive response will display here" widget="text"/>
+        <field name="predictions" colSpan="12" title="Prediction list"/>
       </panel>
       <panel sidebar="true">
         <static>Confirmation du truc</static>
@@ -19,6 +20,7 @@
       <field name="commune"/>
       <field name="requestUrl"/>
       <field name="jsonData"/>
+      <field name="predictions"/>
     </grid>
 
     <action-record model="com.axelor.meteo.db.ApiRequest" name="buildRequestUrl">

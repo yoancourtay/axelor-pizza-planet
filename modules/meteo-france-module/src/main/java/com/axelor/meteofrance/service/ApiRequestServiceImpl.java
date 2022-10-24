@@ -1,17 +1,22 @@
 package com.axelor.meteofrance.service;
 
+import com.axelor.inject.Beans;
 import com.axelor.meteo.db.ApiRequest;
+import com.axelor.meteo.db.Prediction;
 import com.axelor.meteo.db.repo.ApiRequestRepository;
+import com.axelor.meteo.db.repo.PredictionRepository;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
 import java.io.BufferedReader;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -54,21 +59,70 @@ public class ApiRequestServiceImpl implements ApiRequestService {
         }
     }
 
-    private void treatJson(String jsonData){
+    static volatile Boolean isFirstPass = true;
+    
+    @Transactional
+    private void treatJson(String jsonData, ApiRequest apiRequest){
         if(jsonData == null) return;
 
         JSONObject obj = new JSONObject(jsonData);
-        //Date test = LocalDate.now();
+        //LocalDate test = LocalDate.now();
         JSONObject hourly_units = obj.getJSONObject("hourly_units");
         JSONObject hourly = obj.getJSONObject("hourly");
+        //Prediction tmpPrediction = null;
         
+        isFirstPass = true;
         //Dumping all arrays and their content with units into sysout.
         for (String curArray : hourly.keySet()) {
             System.out.println("Dumping "+curArray+":");
 
+            
+            
             hourly.getJSONArray(curArray).forEach(object -> {
                 System.out.println(object+" "+hourly_units.getString(curArray));
+                
+                Prediction curPrediction = null;
+                if (isFirstPass) {
+                    curPrediction = Beans.get(PredictionRepository.class).create(null);
+                    apiRequest.addPrediction(curPrediction);
+                }else {
+                    curPrediction = null;//TODO Get existing prediction
+                }
+
+                //Auto-fill fields base on CurArray's name.
+                try {
+                    if(curPrediction == null) return;
+                    if (curArray == "time") PropertyUtils.setProperty(curPrediction, curArray, (LocalDate) object);
+                    else PropertyUtils.setProperty(curPrediction, curArray, object+" "+hourly_units.getString(curArray));
+                } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {e.printStackTrace();}
+                
             });
+            isFirstPass = false;
+            
+            
+            
+            
+            /*
+            if (isFirstPass) {
+               
+                hourly.getJSONArray(curArray).forEach(object -> {
+                    System.out.println(object+" "+hourly_units.getString(curArray));
+                    Prediction curPrediction = Beans.get(PredictionRepository.class).create(null);
+                    apiRequest.addPrediction(curPrediction);
+                    //TODO Append current prediction to a list.
+                    
+                    //Auto-fill fields base on CurArray's name.
+                    try {
+                        if (curArray == "time") PropertyUtils.setProperty(curPrediction, curArray, (LocalDate) object);
+                        else PropertyUtils.setProperty(curPrediction, curArray, object+" "+hourly_units.getString(curArray));
+                    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {e.printStackTrace();}
+                    
+                });
+                isFirstPass = false;
+            }else{
+                //System.out.println(object+" "+hourly_units.getString(curArray));
+                //TODO Fill-in the rest.
+            }*/
         }
     }
     
@@ -87,6 +141,6 @@ public class ApiRequestServiceImpl implements ApiRequestService {
         );
         String response = makeHttpRequest(apiRequest.getRequestUrl());
         apiRequest.setJsonData(response);
-        treatJson(apiRequest.getJsonData());
+        treatJson(apiRequest.getJsonData(), apiRequest);
     }
 }

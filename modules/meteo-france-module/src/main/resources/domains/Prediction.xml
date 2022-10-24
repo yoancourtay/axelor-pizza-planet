@@ -1,9 +1,11 @@
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
     <module name="meteo" package="com.axelor.meteo.db"/>
-    <entity name="ApiRequest">
-        <many-to-one ref="Commune" name="commune"/>
-        <string name="requestUrl"/>
-        <string name="jsonData" large="true"/>
-        <one-to-many ref="Prediction" name="predictions"/>
+    <entity name="Prediction">
+        <date name="time"/>
+        <string name="temperature_2m"/>
+        <string name="apparent_temperature"/>
+        <string name="precipitation"/>
+        <string name="cloudcover"/>
+        <string name="windspeed_10m"/>
     </entity>
 </domain-models>
