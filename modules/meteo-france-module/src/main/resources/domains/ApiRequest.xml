@@ -2,7 +2,7 @@
     <module name="meteo" package="com.axelor.meteo.db"/>
     <entity name="ApiRequest">
         <many-to-one ref="Commune" name="commune"/>
-        <string name="request"/>
-        <string name="response" large="true"/>
+        <string name="requestUrl"/>
+        <string name="jsonData" large="true"/>
     </entity>
 </domain-models>

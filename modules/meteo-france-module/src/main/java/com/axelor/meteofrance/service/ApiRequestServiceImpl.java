@@ -8,10 +8,13 @@ import com.google.inject.persist.Transactional;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.io.BufferedReader;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 public class ApiRequestServiceImpl implements ApiRequestService {
     private ApiRequestRepository apiRequestRepository;
@@ -50,21 +53,40 @@ public class ApiRequestServiceImpl implements ApiRequestService {
             return null;
         }
     }
+
+    private void treatJson(String jsonData){
+        if(jsonData == null) return;
+
+        JSONObject obj = new JSONObject(jsonData);
+        //Date test = LocalDate.now();
+        JSONObject hourly_units = obj.getJSONObject("hourly_units");
+        JSONObject hourly = obj.getJSONObject("hourly");
+        
+        //Dumping all arrays and their content with units into sysout.
+        for (String curArray : hourly.keySet()) {
+            System.out.println("Dumping "+curArray+":");
+
+            hourly.getJSONArray(curArray).forEach(object -> {
+                System.out.println(object+" "+hourly_units.getString(curArray));
+            });
+        }
+    }
     
     @Override
     @Transactional
     public void sendRequest(ApiRequest apiRequest) throws IOException{
-        //http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/
-        //https://meteofrance.com/widget/prevision/
-        //https://api.open-meteo.com/v1/meteofrance?latitude=48.8567&longitude=2.3510&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m
-        //String URL = "https://meteofrance.com/widget/prevision/"+apiRequest.getCommune().getInsee()+"0";
-        String URL = 
+        //http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/INSEE+0
+        //https://meteofrance.com/widget/prevision/INSEE+0
+        //https://api.open-meteo.com/v1/meteofrance?latitude=48.8567&longitude=2.3510&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m;
+        apiRequest.setRequestUrl(
             "https://api.open-meteo.com/v1/meteofrance?latitude="+
             apiRequest.getCommune().getLatitude()+
             "&longitude="+
             apiRequest.getCommune().getLongitude()+
-            "&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m";
-        String response = makeHttpRequest(URL);
-        apiRequest.setResponse(response);
+            "&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m"
+        );
+        String response = makeHttpRequest(apiRequest.getRequestUrl());
+        apiRequest.setJsonData(response);
+        treatJson(apiRequest.getJsonData());
     }
 }

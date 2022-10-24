@@ -5,11 +5,11 @@
     <form name="api-form" model="com.axelor.meteo.db.ApiRequest" title="Faire une requête à Meteo France">
       <panel>
         <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onChange="buildRequestUrl"/>
-        <field name="request" colSpan="12" title="Built request url" placeholder="Built url will display here"/>
+        <field name="requestUrl" colSpan="12" title="Built request url" placeholder="Built url will display here"/>
         <spacer colSpan="3"/>
         <button name="btnSnd" onClick="save, action-mf-send-request" title="Faire la requête" colSpan="6"/>
         <spacer colSpan="3"/>
-        <field name="response" colSpan="12" title="Server's response to the request" placeholder="receive response will display here" widget="text"/>
+        <field name="jsonData" colSpan="12" title="Server's response to the request" placeholder="receive response will display here" widget="text"/>
       </panel>
       <panel sidebar="true">
         <static>Confirmation du truc</static>
@@ -17,14 +17,14 @@
     </form>
     <grid name="api-grid" model="com.axelor.meteo.db.ApiRequest" title="Voir les reqêtes effectuées">
       <field name="commune"/>
-      <field name="request"/>
-      <field name="response"/>
+      <field name="requestUrl"/>
+      <field name="jsonData"/>
     </grid>
 
     <action-record model="com.axelor.meteo.db.ApiRequest" name="buildRequestUrl">
       <!-- <field name="request" expr="eval: 'https://meteofrance.com/widget/prevision/'+commune?.insee+'0'" /> -->
       <!-- <field name="request" expr="eval: 'http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/'+commune?.insee+'0'" /> -->
-      <field name="request" expr="eval: 'https://api.open-meteo.com/v1/meteofrance?latitude='+commune?.latitude+'&amp;longitude='+commune?.longitude+'&amp;hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m'" />
+      <field name="requestUrl" expr="eval: 'https://api.open-meteo.com/v1/meteofrance?latitude='+commune?.latitude+'&amp;longitude='+commune?.longitude+'&amp;hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m'" />
     </action-record>
 
     <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">
