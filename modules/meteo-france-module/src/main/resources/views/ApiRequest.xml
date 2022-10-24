@@ -23,7 +23,8 @@
 
     <action-record model="com.axelor.meteo.db.ApiRequest" name="buildRequestUrl">
       <!-- <field name="request" expr="eval: 'https://meteofrance.com/widget/prevision/'+commune?.insee+'0'" /> -->
-      <field name="request" expr="eval: 'http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/'+commune?.insee+'0'" />
+      <!-- <field name="request" expr="eval: 'http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/'+commune?.insee+'0'" /> -->
+      <field name="request" expr="eval: 'https://api.open-meteo.com/v1/meteofrance?latitude='+commune?.latitude+'&amp;longitude='+commune?.longitude+'&amp;hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m'" />
     </action-record>
 
     <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">

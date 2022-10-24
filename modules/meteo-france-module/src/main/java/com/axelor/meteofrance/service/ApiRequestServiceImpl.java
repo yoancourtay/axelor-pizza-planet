@@ -57,7 +57,13 @@ public class ApiRequestServiceImpl implements ApiRequestService {
         //http://www.meteofrance.com/mf3-rpc-portlet/rest/pluie/
         //https://meteofrance.com/widget/prevision/
         //https://api.open-meteo.com/v1/meteofrance?latitude=48.8567&longitude=2.3510&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m
-        String URL = "https://meteofrance.com/widget/prevision/"+apiRequest.getCommune().getInsee()+"0";
+        //String URL = "https://meteofrance.com/widget/prevision/"+apiRequest.getCommune().getInsee()+"0";
+        String URL = 
+            "https://api.open-meteo.com/v1/meteofrance?latitude="+
+            apiRequest.getCommune().getLatitude()+
+            "&longitude="+
+            apiRequest.getCommune().getLongitude()+
+            "&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover,windspeed_10m";
         String response = makeHttpRequest(URL);
         apiRequest.setResponse(response);
     }
