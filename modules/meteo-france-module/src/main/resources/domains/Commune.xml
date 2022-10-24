@@ -4,6 +4,8 @@
         <string name="insee" required="true" unique="true" title="Code INSEE"/>
         <string name="zipcode" required="true" title="Code postal"/>
         <string name="name" required="true" title="Nom de la commune"/>
+        <decimal name="latitude" required="true" title="Latitude" precision="13" scale="10"/>
+        <decimal name="longitude" required="true" title="Longitude" precision="14" scale="11"/>
         <many-to-one ref="Departement" name="departement" title="Departement de la commune"/>
     </entity>
 </domain-models>

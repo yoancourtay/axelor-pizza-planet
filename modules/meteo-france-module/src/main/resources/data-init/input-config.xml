@@ -8,6 +8,8 @@
    <bind to="insee" column="code_commune_INSEE"/>
    <bind to="zipcode" column="code_postal"/>
    <bind to="name" column="nom_commune"/>
+   <bind to="latitude" column="latitude"/>
+   <bind to="longitude" column="longitude"/>
    <bind to="departement" if="!code_departement" eval='"Unknown Departement"'>
       <bind to="code" eval="-1"/>
       <bind to="name" eval='"Unknown Departement"'/>
