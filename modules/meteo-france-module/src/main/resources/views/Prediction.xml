@@ -2,12 +2,12 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <grid title="" name="Prediction-grid" model="com.axelor.meteo.db.Prediction"  canNew="false" canDelete="false" canEdit="false" canArchive="false" canSave="false">
-      <field name="time"/>
-      <field name="temperature_2m"/>
-      <field name="apparent_temperature"/>
+    <grid title="" name="Prediction-grid" model="com.axelor.meteo.db.Prediction"  canNew="false" canDelete="false" canEdit="false" canArchive="false" canSave="false" orderBy="time">
+      <field name="time" width="130px"/>
+      <field name="temperature_2m" width="115px"/>
+      <field name="apparent_temperature" width="85px"/>
       <field name="precipitation"/>
       <field name="cloudcover"/>
-      <field name="windspeed_10m"/>
+      <field name="windspeed_10m" width="130px"/>
     </grid>
 </object-views>
