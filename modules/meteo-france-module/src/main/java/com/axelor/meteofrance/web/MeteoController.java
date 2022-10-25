@@ -16,6 +16,5 @@ public class MeteoController {
             Beans.get(ApiRequestService.class).sendRequest(apiRequest);
         } catch (IOException e){response.setError(e.toString());}
         response.setReload(true);
-        response.setFlash("request sent");
     }
 }
