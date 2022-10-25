@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://axelor.com/xml/ns/data-import
     http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
 
-<input file="Simple.csv" separator="," type="com.axelor.meteo.db.Commune" search="self.insee = :code_commune_INSEE" >
+<input file="communes-departement-region.csv" separator="," type="com.axelor.meteo.db.Commune" search="self.insee = :code_commune_INSEE" >
    <bind to="insee" column="code_commune_INSEE"/>
    <bind to="zipcode" column="code_postal"/>
    <bind to="name" column="nom_commune"/>
