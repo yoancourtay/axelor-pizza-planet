@@ -9,9 +9,5 @@
       <field name="latitude" width="120"/>
       <field name="longitude" width="120"/>
       <field name="departement" width="300"/>
-      <!-- <field name="isVegetarian">
-        <hilite background="success" if="isVegetarian == true"/>
-        <hilite background="danger" if="isVegetarian == false"/>
-      </field> -->
     </grid>
 </object-views>

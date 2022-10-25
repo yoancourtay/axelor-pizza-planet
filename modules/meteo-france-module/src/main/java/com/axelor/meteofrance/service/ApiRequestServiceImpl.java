@@ -14,10 +14,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+import java.util.List;
 import java.io.BufferedReader;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -60,69 +63,54 @@ public class ApiRequestServiceImpl implements ApiRequestService {
     }
 
     static volatile Boolean isFirstPass = true;
+    static volatile int predictionCounter = 0, p = 0;
     
     @Transactional
     private void treatJson(String jsonData, ApiRequest apiRequest){
         if(jsonData == null) return;
 
         JSONObject obj = new JSONObject(jsonData);
-        //LocalDate test = LocalDate.now();
         JSONObject hourly_units = obj.getJSONObject("hourly_units");
         JSONObject hourly = obj.getJSONObject("hourly");
-        //Prediction tmpPrediction = null;
         
         isFirstPass = true;
-        //Dumping all arrays and their content with units into sysout.
+        predictionCounter = 0;
+        List<Prediction> predicList = new LinkedList<Prediction>();
+
+        //Dumping all arrays and their content with units and putting it in the DB.
         for (String curArray : hourly.keySet()) {
             System.out.println("Dumping "+curArray+":");
 
-            
-            
+            p = 0;
+
             hourly.getJSONArray(curArray).forEach(object -> {
                 System.out.println(object+" "+hourly_units.getString(curArray));
                 
                 Prediction curPrediction = null;
+                
+                //If we're doing the first pass through json, create a "prediction" in the DB with the first field we get.
+                //else go get the relevant existing prediction in DB to add to it.
                 if (isFirstPass) {
                     curPrediction = Beans.get(PredictionRepository.class).create(null);
                     apiRequest.addPrediction(curPrediction);
+                    predicList.add(curPrediction);
+                    predictionCounter++;
                 }else {
-                    curPrediction = null;//TODO Get existing prediction
+                    curPrediction = predicList.get(p);
+                    p++;
                 }
 
-                //Auto-fill fields base on CurArray's name.
+                //Auto-fill fields based on CurArray's name.
                 try {
                     if(curPrediction == null) return;
-                    if (curArray == "time") PropertyUtils.setProperty(curPrediction, curArray, (LocalDate) object);
+                    //If filling in "time" parse object with LocalDate (format is iso8601).
+                    if (curArray.equals("time")) PropertyUtils.setProperty(curPrediction, curArray, LocalDateTime.parse((String) object, DateTimeFormatter.ISO_DATE_TIME));
+                    //Else fill in "current array name" with object as string with units appended to it.
                     else PropertyUtils.setProperty(curPrediction, curArray, object+" "+hourly_units.getString(curArray));
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {e.printStackTrace();}
                 
             });
             isFirstPass = false;
-            
-            
-            
-            
-            /*
-            if (isFirstPass) {
-               
-                hourly.getJSONArray(curArray).forEach(object -> {
-                    System.out.println(object+" "+hourly_units.getString(curArray));
-                    Prediction curPrediction = Beans.get(PredictionRepository.class).create(null);
-                    apiRequest.addPrediction(curPrediction);
-                    //TODO Append current prediction to a list.
-                    
-                    //Auto-fill fields base on CurArray's name.
-                    try {
-                        if (curArray == "time") PropertyUtils.setProperty(curPrediction, curArray, (LocalDate) object);
-                        else PropertyUtils.setProperty(curPrediction, curArray, object+" "+hourly_units.getString(curArray));
-                    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {e.printStackTrace();}
-                    
-                });
-                isFirstPass = false;
-            }else{
-                //System.out.println(object+" "+hourly_units.getString(curArray));
-                //TODO Fill-in the rest.
-            }*/
         }
     }
     

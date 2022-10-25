@@ -1,11 +1,11 @@
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
     <module name="meteo" package="com.axelor.meteo.db"/>
     <entity name="Prediction">
-        <date name="time"/>
-        <string name="temperature_2m"/>
-        <string name="apparent_temperature"/>
-        <string name="precipitation"/>
-        <string name="cloudcover"/>
-        <string name="windspeed_10m"/>
+        <datetime name="time" title="Date &amp; heure"/>
+        <string name="temperature_2m" title="Temperature"/>
+        <string name="apparent_temperature" title="Ressenti"/>
+        <string name="precipitation" title="Quantité de precipitations"/>
+        <string name="cloudcover" title="Couverture nuageuse"/>
+        <string name="windspeed_10m" title="Vitesse du vent"/>
     </entity>
 </domain-models>

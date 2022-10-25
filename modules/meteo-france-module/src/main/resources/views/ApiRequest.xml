@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <form name="api-form" model="com.axelor.meteo.db.ApiRequest" title="Faire une requête à Meteo France">
+    <form name="api-form" model="com.axelor.meteo.db.ApiRequest" title="Faire une requête à Meteo France" width="large">
       <panel>
         <field name="commune" colSpan="12" placeholder="Sélectionez une commune" onChange="buildRequestUrl"/>
         <field name="requestUrl" colSpan="12" title="Built request url" placeholder="Built url will display here"/>
@@ -12,11 +12,8 @@
         <field name="jsonData" colSpan="12" title="Server's response to the request" placeholder="receive response will display here" widget="text"/>
         <field name="predictions" colSpan="12" title="Prediction list"/>
       </panel>
-      <panel sidebar="true">
-        <static>Confirmation du truc</static>
-      </panel>
     </form>
-    <grid name="api-grid" model="com.axelor.meteo.db.ApiRequest" title="Voir les reqêtes effectuées">
+    <grid name="api-grid" model="com.axelor.meteo.db.ApiRequest" title="Voir les reqêtes effectuées" width="large">
       <field name="commune"/>
       <field name="requestUrl"/>
       <field name="jsonData"/>
