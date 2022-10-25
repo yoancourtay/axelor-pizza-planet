@@ -6,8 +6,8 @@
       <field name="insee" width="105"/>
       <field name="zipcode" width="110"/>
       <field name="name"/>
+      <field name="departement" width="300"/>
       <field name="latitude" width="120"/>
       <field name="longitude" width="120"/>
-      <field name="departement" width="300"/>
     </grid>
 </object-views>
