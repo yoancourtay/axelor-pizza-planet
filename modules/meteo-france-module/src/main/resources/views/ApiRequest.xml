@@ -11,6 +11,7 @@
         <spacer colSpan="2"/>
         <field name="jsonData" colSpan="12" title="Server's response to the request" placeholder="received response will display here" widget="text"/>
         <field name="predictions" colSpan="12" title="Prévisions météorologiques"/>
+        <panel-dashlet name="predictionsPanel" colSpan="12" action="action-predictions-show-predictions" height="365"/>
       </panel>
     </form>
     <grid name="api-grid" model="com.axelor.meteo.db.ApiRequest" title="Voir les reqêtes effectuées" width="large">
@@ -29,4 +30,8 @@
     <action-method name="action-mf-send-request" model="com.axelor.meteo.db.ApiRequest">
       <call class="com.axelor.meteofrance.web.MeteoController" method="sendRequest"/>
     </action-method>
+
+    <action-view name="action-predictions-show-predictions" title="React App">
+        <view type="html" name="meteo/predictions?apiRequestId={{id}}"/>
+    </action-view>
 </object-views>
