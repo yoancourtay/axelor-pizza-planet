@@ -1,0 +1,8 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+    <module name="photoalbum" package="com.axelor.photoalbum.db"/>
+    <entity name="Album">
+        <string name="title" title="Titre" min="2" required="true"/>
+        <string name="description" title="Description"/>
+        <one-to-many name="photoList" ref="com.axelor.photoalbum.db.Photo"/>
+    </entity>
+</domain-models>

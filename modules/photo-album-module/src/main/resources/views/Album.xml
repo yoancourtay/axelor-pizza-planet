@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    <grid title="Liste de tout les albums" name="album-grid" model="com.axelor.photoalbum.db.Album" canNew="false" canDelete="false" canEdit="false"> 
+        <field name="title"/>
+        <field name="description"/>
+        <field name="photoList"/>
+    </grid>
+    <form title="Créer un ablum photo" name="album-form" model="com.axelor.photoalbum.db.Album">
+        <panel name="mainPanel" colSpan="12">
+            <field name="title" colSpan="12"/>
+            <field name="description" colSpan="12"/>
+            <field name="photoList" colSpan="12"/>
+        </panel>
+    </form>
+</object-views>
