@@ -40,6 +40,7 @@ allprojects {
 dependencies {
   implementation project(":modules:pizza-planet-module")
   implementation project(":modules:meteo-france-module")
+  implementation project(":modules:photo-album-module")
 }
 
 wrapper {

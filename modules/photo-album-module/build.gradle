@@ -1,0 +1,10 @@
+apply plugin: 'com.axelor.app-module'
+
+axelor {
+  title = "Axelor :: PhotoAlbumModule"
+}
+
+dependencies {
+  // https://mvnrepository.com/artifact/org.json/json
+  implementation("org.json:json:20220924")
+}
