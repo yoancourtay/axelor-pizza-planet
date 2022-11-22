@@ -8,7 +8,7 @@
     <menuitem name="menu-photo-album-albums" title="Albums" parent="menu-photo-album-root" action="action.photoalbum.albums.view.all" icon="fa-book" order="0"/>
     <menuitem name="menu-photo-album-add-album" title="Créer un album" parent="menu-photo-album-root" action="action.photoalbum.albums.add" icon="fa-plus-square" order="1"/>
     <menuitem name="menu-photo-album-photos" title="Photos" parent="menu-photo-album-root" action="action.photoalbum.photos.view.all" icon="fa-picture-o" order="2"/>
-    <menuitem name="menu-photo-album-add-photo" title="Upload une photo" parent="menu-photo-album-root" action="action.photoalbum.photos.add" icon="fa-upload" order="3"/>
+    <!-- <menuitem name="menu-photo-album-add-photo" title="Upload une photo" parent="menu-photo-album-root" action="action.photoalbum.photos.add" icon="fa-upload" order="3"/> -->
 
     <action-view name="action.photoalbum.albums.view.all" title="Tout les albums" model="com.axelor.photoalbum.db.Album">
         <view type="grid" name="album-grid"/>
@@ -19,7 +19,7 @@
     <action-view name="action.photoalbum.photos.view.all" title="Toutes les photos" model="com.axelor.photoalbum.db.Photo">
         <view type="grid" name="photo-grid"/>
     </action-view>
-    <action-view name="action.photoalbum.photos.add" title="Mettre une photo en ligne" model="com.axelor.photoalbum.db.Photo">
+    <!-- <action-view name="action.photoalbum.photos.add" title="Mettre une photo en ligne" model="com.axelor.photoalbum.db.Photo">
         <view type="form" name="photo-form"/>
-    </action-view>
+    </action-view> -->
 </object-views>
