@@ -15,7 +15,7 @@
             <spacer colSpan="2"/>
             <button name="btnCreate" onClick="save" title="Créer l'album" colSpan="8"/>
             <spacer colSpan="2"/>
-            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="365"/>
+            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="1100"/>
         </panel>
     </form>
 
