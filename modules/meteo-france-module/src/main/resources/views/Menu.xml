@@ -15,6 +15,7 @@
     </action-view>
     <action-view name="action.mf.api.view.all" title="Liste des reqêtes effectuées" model="com.axelor.meteo.db.ApiRequest">
         <view type="grid" name="api-grid"/>
+        <view type="form" name="api-form"/>
     </action-view>
     
     <menuitem name="menu-mf-db-root" title="Données locale" parent="menu-meteo-france-root" icon="fa-database" order="1"/>
