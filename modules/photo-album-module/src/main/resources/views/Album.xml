@@ -12,10 +12,10 @@
             <field name="title" colSpan="12"/>
             <field name="description" colSpan="12"/>
             <field name="photoList" colSpan="12"/>
-            <spacer colSpan="2"/>
-            <button name="btnCreate" onClick="save" title="Créer l'album" colSpan="8"/>
-            <spacer colSpan="2"/>
-            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650"/>
+            <spacer colSpan="2" showIf="!$readonly()"/>
+            <button name="btnCreate" onClick="save" title="Sauvegarder l'album" colSpan="8" showIf="!$readonly()"/>
+            <spacer colSpan="2" showIf="!$readonly()"/>
+            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id"/>
         </panel>
     </form>
 
