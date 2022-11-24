@@ -19,7 +19,7 @@
         </panel>
     </form>
 
-    <action-view name="action-album-show-photos" title="React App carousel">
+    <action-view name="action-album-show-photos" title="Carousel de photos">
         <view type="html" name="carousel?albumId={{id}}"/>
     </action-view>
 </object-views>
