@@ -15,7 +15,7 @@
             <spacer colSpan="2" showIf="!$readonly()"/>
             <button name="btnCreate" onClick="save" title="Sauvegarder l'album" colSpan="8" showIf="!$readonly()"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
-            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id"/>
+            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id &amp;&amp; photoList.length &gt; 0"/>
         </panel>
     </form>
 
