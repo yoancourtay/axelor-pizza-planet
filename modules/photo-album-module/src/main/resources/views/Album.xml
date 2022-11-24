@@ -7,7 +7,7 @@
         <field name="description"/>
         <field name="photoList"/>
     </grid>
-    <form title="Créer un ablum photo" name="album-form" model="com.axelor.photoalbum.db.Album">
+    <form title="Créer un album photo" name="album-form" model="com.axelor.photoalbum.db.Album">
         <panel name="mainPanel" colSpan="12">
             <field name="title" colSpan="12"/>
             <field name="description" colSpan="12"/>
