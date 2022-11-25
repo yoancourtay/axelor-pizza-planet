@@ -15,6 +15,11 @@
     <form title="Mettre une photo en ligne" name="photo-form" model="com.axelor.photoalbum.db.Photo">
         <panel name="mainPanel" colSpan="12">
             <field name="picture" widget="image" colSpan="12"/>
+            <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor" height="700" showIf="id &amp;&amp; !$readonly()"/>
         </panel>
     </form>
+
+    <action-view name="action-photo-show-editor" title="Editeur d'image">
+        <view type="html" name="editor?photoId={{id}}"/>
+    </action-view>
 </object-views>
