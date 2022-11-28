@@ -20,6 +20,6 @@
     </form>
 
     <action-view name="action-photo-show-editor" title="Editeur d'image">
-        <view type="html" name="editor?photoId={{id}}"/>
+        <view type="html" name="editor?photoId={{_id}}"/>
     </action-view>
 </object-views>
