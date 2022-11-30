@@ -20,6 +20,6 @@
     </form>
 
     <action-view name="action-photo-show-editor" title="Editeur d'image">
-        <view type="html" name="editor?photoId={{picture.id}}"/>
+        <view type="html" name="editor?id={{picture.id}}&amp;domain=com.axelor.photoalbum.db.Photo&amp;projectName=pizza-planet"/>
     </action-view>
 </object-views>
