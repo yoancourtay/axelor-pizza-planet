@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <grid title="Liste de toutes le photos" name="photo-grid" model="com.axelor.photoalbum.db.Photo" canNew="false" canDelete="false" canEdit="false"> 
+    <grid title="Liste de toutes le photos" name="photo-grid" model="com.axelor.photoalbum.db.Photo" canNew="false" canDelete="false" canEdit="false" orderBy="id"> 
         <field name="picture" widget="image"/>
         <field name="pictureType"/>
         <field name="main">
@@ -20,6 +20,6 @@
     </form>
 
     <action-view name="action-photo-show-editor" title="Editeur d'image">
-        <view type="html" name="editor?id={{id}}&amp;domain=com.axelor.photoalbum.db.Photo&amp;projectName=pizza-planet"/>
+        <view type="html" name="image-editor?id={{id}}&amp;model=com.axelor.photoalbum.db.Photo&amp;metaFileField=picture&amp;projectName=pizza-planet"/>
     </action-view>
 </object-views>
