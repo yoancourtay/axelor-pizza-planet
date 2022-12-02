@@ -20,6 +20,7 @@
     </form>
 
     <action-view name="action-photo-show-editor" title="Editeur d'image">
-        <view type="html" name="image-editor?id={{id}}&amp;model=com.axelor.photoalbum.db.Photo&amp;metaFileField=picture&amp;projectName=pizza-planet"/>
+        <view type="html" name="image-editor?id={{id}}&amp;model=com.axelor.photoalbum.db.Photo&amp;metaFileField=picture&amp;projectName=pizza-planet&amp;language={{_language}}"/>
+        <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 </object-views>
