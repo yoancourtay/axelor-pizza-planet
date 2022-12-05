@@ -18,12 +18,18 @@
             <spacer colSpan="2" showIf="!$readonly()"/>
             <button name="btnCreate" onClick="save" title="Sauvegarder l'album" colSpan="8" showIf="!$readonly()"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
-            <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id &amp;&amp; photoList.length &gt; 0"/>
+            <!-- <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id &amp;&amp; photoList.length &gt; 0"/> -->
+            <panel-dashlet action="image-browser" colSpan="12"/>
         </panel>
     </form>
 
     <action-view name="action-album-show-photos" title="Carousel de photos">
         <view type="html" name="carousel?albumId={{id}}"/>        
+    </action-view>
+
+    <action-view name="image-browser" title="">
+        <view type="html" name="image-browser?id={{id}}&amp;model=com.axelor.photoalbum.db.Album&amp;metaFileField=picture&amp;projectName=pizza-planet&amp;language={{_language}}"/>        
+        <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 
     <action-view title="" model="com.axelor.photoalbum.db.Photo" name="view.photo"  >        
