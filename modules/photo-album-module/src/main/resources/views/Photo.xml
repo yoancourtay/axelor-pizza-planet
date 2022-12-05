@@ -15,12 +15,25 @@
     <form title="Mettre une photo en ligne" name="photo-form" model="com.axelor.photoalbum.db.Photo">
         <panel name="mainPanel" colSpan="12">
             <field name="picture" widget="image" colSpan="12"/>
-            <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor" height="700" showIf="id &amp;&amp; !$readonly()"/>
+            <panel-dashlet name="imageEditor" colSpan="12" action="action-photo-show-editor" height="700" showIf="!$readonly()"/>
         </panel>
     </form>
 
     <action-view name="action-photo-show-editor" title="Editeur d'image">
-        <view type="html" name="image-editor?id={{id}}&amp;model=com.axelor.photoalbum.db.Photo&amp;metaFileField=picture&amp;projectName=pizza-planet&amp;language={{_language}}"/>
+        <view type="html" name="image-editor?id={{id}}&amp;model=com.axelor.photoalbum.db.Photo&amp;metaFileField=picture&amp;projectName=pizza-planet&amp;language={{_language}}&amp;parendId={{_parentId}}"/>
         <context name="_language" expr="eval: 'fr'"/>
+        <context name="_parentId" expr="eval: _parentId" />
     </action-view>
+
+    <cards name="photo-cards" model="com.axelor.photoalbum.db.Photo" title="Photos" canNew="true" canDelete="true"
+    css="rect-image" width="280px" orderBy="id">
+       
+    <field name="picture"/>
+    <template><![CDATA[			
+			  <div class="span4 card-image" style="width: 256px; height: 128px;">
+                <img ng-src="{{$image('picture', 'content')}}" style="width: 100%; height: 100%; object-fit: contain;"/>             
+			  </div>			  
+		]]> 
+    </template>
+  </cards>
 </object-views>

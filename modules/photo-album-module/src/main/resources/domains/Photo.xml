@@ -1,10 +1,11 @@
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
     <module name="photoalbum" package="com.axelor.photoalbum.db"/>
     <entity name="Photo">
-        <many-to-one name="picture" title="Image" ref="com.axelor.meta.db.MetaFile" initParam="true"/>
+        <many-to-one name="picture" title="Image" ref="com.axelor.meta.db.MetaFile" initParam="true" required="true"/>
         <integer name="pictureType" title="Type d'image" selection="openauction.pictureType.select"/>
         <boolean name="main" title="Principal" default="false"/>
         <string name="filePath" title="Chemin d'accès fichier"/>
         <string name="fileNameImported" title="Nom du fichier importé"/>
+        <many-to-one name="album" title="Album" ref="com.axelor.photoalbum.db.Album"/>
     </entity>
 </domain-models>

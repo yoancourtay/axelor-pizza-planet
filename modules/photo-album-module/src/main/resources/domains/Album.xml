@@ -3,6 +3,6 @@
     <entity name="Album">
         <string name="title" title="Titre" min="2" required="true"/>
         <string name="description" title="Description"/>
-        <one-to-many name="photoList" title="Liste de photos" ref="com.axelor.photoalbum.db.Photo"/>
+        <one-to-many name="photoList" title="Liste de photos" ref="com.axelor.photoalbum.db.Photo" mappedBy="album"/>
     </entity>
 </domain-models>

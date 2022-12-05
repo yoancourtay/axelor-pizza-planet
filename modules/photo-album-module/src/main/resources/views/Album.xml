@@ -2,6 +2,8 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    
+    
     <grid title="Liste de tout les albums" name="album-grid" model="com.axelor.photoalbum.db.Album" canNew="false" canDelete="false" canEdit="false"> 
         <field name="title"/>
         <field name="description"/>
@@ -11,7 +13,8 @@
         <panel name="mainPanel" colSpan="12">
             <field name="title" colSpan="12"/>
             <field name="description" colSpan="12"/>
-            <field name="photoList" colSpan="12"/>
+            <!-- <button name="btnCreate" onClick="save" title="Ajouter une photo" colSpan="8"/> -->
+            <panel-dashlet action="view.photo" colSpan="12"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
             <button name="btnCreate" onClick="save" title="Sauvegarder l'album" colSpan="8" showIf="!$readonly()"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
@@ -20,6 +23,14 @@
     </form>
 
     <action-view name="action-album-show-photos" title="Carousel de photos">
-        <view type="html" name="carousel?albumId={{id}}"/>
+        <view type="html" name="carousel?albumId={{id}}"/>        
+    </action-view>
+
+    <action-view title="" model="com.axelor.photoalbum.db.Photo" name="view.photo"  >        
+        <view type="cards" name="photo-cards"/>
+        <view type="form" name="photo-form"/>
+        <view-param name="popup" value="reload" />
+        <domain>self.album.id = :id </domain>
+        <context name="_parentId" expr="eval: __this__.id " />
     </action-view>
 </object-views>
