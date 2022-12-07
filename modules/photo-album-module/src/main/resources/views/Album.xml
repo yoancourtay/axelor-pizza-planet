@@ -28,7 +28,7 @@
     </action-view>
 
     <action-view name="image-browser" title="">
-        <view type="html" name="image-browser?id={{id}}&amp;model=com.axelor.photoalbum.db.Album&amp;metaFileField=picture&amp;projectName=pizza-planet&amp;language={{_language}}"/>        
+        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}"/>        
         <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 
