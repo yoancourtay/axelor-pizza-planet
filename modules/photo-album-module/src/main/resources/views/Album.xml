@@ -13,6 +13,7 @@
         <panel name="mainPanel" colSpan="12">
             <field name="title" colSpan="12"/>
             <field name="description" colSpan="12"/>
+            <field name="photoList" colSpan="12"/>
             <!-- <button name="btnCreate" onClick="save" title="Ajouter une photo" colSpan="8"/> -->
             <panel-dashlet action="view.photo" colSpan="12"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
