@@ -20,7 +20,8 @@
             <button name="btnCreate" onClick="save" title="Sauvegarder l'album" colSpan="8" showIf="!$readonly()"/>
             <spacer colSpan="2" showIf="!$readonly()"/>
             <!-- <panel-dashlet name="albumPhotosPanel" colSpan="12" action="action-album-show-photos" height="650" showIf="id &amp;&amp; photoList.length &gt; 0"/> -->
-            <panel-dashlet action="image-browser" colSpan="12" height="650"/>
+            <panel-dashlet action="image-browser" colSpan="12" height="650" showIf="!$readonly()"/>
+            <panel-dashlet action="image-browser-readonly" colSpan="12" height="650" showIf="$readonly()"/>
         </panel>
     </form>
 
@@ -29,7 +30,12 @@
     </action-view>
 
     <action-view name="image-browser" title="">
-        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}"/>        
+        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readonly={{false}}"/>        
+        <context name="_language" expr="eval: 'fr'"/>
+    </action-view>
+
+    <action-view name="image-browser-readonly" title="">
+        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readonly={{true}}"/>        
         <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 
