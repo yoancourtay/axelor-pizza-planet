@@ -30,12 +30,12 @@
     </action-view>
 
     <action-view name="image-browser" title="">
-        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readonly={{false}}"/>        
+        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readOnly={{false}}"/>        
         <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 
     <action-view name="image-browser-readonly" title="">
-        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readonly={{true}}"/>        
+        <view type="html" name="image-browser?id={{id}}&amp;projectName=pizza-planet&amp;language={{_language}}&amp;readOnly={{true}}"/>        
         <context name="_language" expr="eval: 'fr'"/>
     </action-view>
 
