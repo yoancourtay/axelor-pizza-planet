@@ -7,5 +7,6 @@
         <string name="filePath" title="Chemin d'accès fichier"/>
         <string name="fileNameImported" title="Nom du fichier importé"/>
         <many-to-one name="album" title="Album" ref="com.axelor.photoalbum.db.Album"/>
+        <integer name="sequence" title="Ordre"/>
     </entity>
 </domain-models>

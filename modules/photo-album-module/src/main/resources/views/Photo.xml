@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-    <grid title="Liste de toutes le photos" name="photo-grid" model="com.axelor.photoalbum.db.Photo" canNew="false" canDelete="false" canEdit="false" orderBy="id"> 
+    <grid title="Liste de toutes le photos" name="photo-grid" model="com.axelor.photoalbum.db.Photo" canNew="false" canDelete="false" canEdit="false" canMove="true" orderBy="sequence"> 
         <field name="picture" widget="image"/>
         <field name="pictureType"/>
         <field name="main">
@@ -11,6 +11,7 @@
         </field>
         <field name="filePath"/>
         <field name="fileNameImported"/>
+        <field name="sequence"/>
     </grid>
     <form title="Mettre une photo en ligne" name="photo-form" model="com.axelor.photoalbum.db.Photo">
         <panel name="mainPanel" colSpan="12">
